@@ -1,7 +1,7 @@
 from random import randint
 WIDTH = 800
 HEIGHT = 600
-mario = Actor ### to be changed in class
+mario = Actor("wario")
 mario.pos = 400, 300
 bird = Actor("bird-up")
 bird.pos = randint(800, 1600), randint(10, 200)
@@ -18,7 +18,7 @@ scores = []
 
 def update_high_scores():
     global score, scores
-    filename = r"F:\HDISK\PythonCode\SuperMario\high-scores.txt"
+    filename = r"./YOURDIRECTORY/high-scores.txt"
     scores = []
     with open(filename, "r") as file:
         line = file.readline()
@@ -43,8 +43,8 @@ def display_high_scores():
         position += 1
         
 def draw():
-    # to be added in class
-    if # to be added in class:
+    screen.blit("background", (0, 0))
+    if not game_over:
         mario.draw()
         bird.draw()
         house.draw()
@@ -77,7 +77,7 @@ def update():
     global game_over, score, number_of_updates
     if not game_over:
         if not up:
-            # to be changed in class
+            mario.y += 1
     if bird.x > 0:
         bird.x -= 4
         if number_of_updates == 9:
